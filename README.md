@@ -4,15 +4,20 @@ Chat with your PDFs locally. Upload a PDF, ask questions in any language, and ge
 
 Runs on `localhost` only. There are no accounts, and you bring your own API keys.
 
+## Features
+
+- **Ask about one paper.** Papers up to 150 pages are read in full for every question, so nothing is missed and "not in this document" really means it isn't there. Longer documents (up to 300 pages) use search to find the most relevant parts.
+- **Ask across many papers.** Group up to 20 papers into a **collection** to compare methods, datasets or results. *Quick* answers from all papers at once; *Deep compare* (2–10 papers) reads each paper on its own first, then compares them for more thorough answers.
+- **Citations you can check.** Every claim cites its source, numbered 1, 2, 3… per answer. Clicking a citation opens the right paper at the cited lines, highlighted in yellow. Quotes that can't be matched exactly are marked "approximate", and questions a paper doesn't cover are clearly labelled.
+- **Any language.** Ask in Indonesian, English or any other language; answers follow your language while quotes stay in the paper's original wording.
+- **Bring your own models.** Works with any OpenAI-compatible chat and embedding API. Keys are entered on the Settings page and stay on your machine.
+- **Private and local.** PDFs, chats and keys are stored in a local SQLite database; only the text needed for an answer is sent to the model provider.
+
 ## Requirements
 
 - Node.js 20.9+
 - An API key for a **chat model** (any OpenAI-compatible API)
 - An API key for an **embedding model** (any OpenAI-compatible `/embeddings` API). Only needed for PDFs over 150 pages and large collections.
-
-## Collections
-
-Group papers into a **collection** to ask questions across all of them (compare methods, datasets, results). Small collections are read whole; large ones use a summary of every paper plus the most relevant parts of each; **Deep compare** reads every paper in full before answering.
 
 ## Getting started
 
