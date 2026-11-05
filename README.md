@@ -17,7 +17,7 @@ Group papers into a **collection** to ask questions across all of them (compare 
 ## Getting started
 
 ```bash
-git clone <this repo> && cd ornaml
+git clone https://github.com/dnngw/ornaml.git && cd ornaml
 npm install
 npm run dev
 ```
@@ -107,3 +107,7 @@ npm test             # unit tests (no API keys or database needed)
 npm run lint         # ESLint (Next.js rules + no-undef / no-unused-vars)
 npm run format       # Prettier (format:check to verify)
 ```
+
+## License
+
+[MIT](LICENSE)

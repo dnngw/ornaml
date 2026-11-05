@@ -1,7 +1,13 @@
 {
   "name": "ornaml",
   "version": "0.1.0",
+  "description": "Chat with your research papers locally: answers with citations highlighted in the PDF, multi-paper collections and deep compare.",
+  "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dnngw/ornaml.git"
+  },
   "scripts": {
     "predev": "node scripts/copy-pdf-worker.mjs",
     "dev": "next dev",
