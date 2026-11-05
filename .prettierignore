@@ -1,0 +1,7 @@
+.next
+data
+node_modules
+public/pdf.worker.min.mjs
+package-lock.json
+# Docs are written by hand; tables are aligned manually.
+*.md
