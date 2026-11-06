@@ -11,7 +11,10 @@ const eslintConfig = defineConfig([
     },
     rules: {
       "no-undef": "error",
-      "no-unused-vars": ["error", { args: "none", ignoreRestSiblings: true, caughtErrors: "none" }],
+      "no-unused-vars": [
+        "error",
+        { args: "none", ignoreRestSiblings: true, caughtErrors: "none", varsIgnorePattern: "^_" },
+      ],
     },
   },
   // Override default ignores of eslint-config-next.
