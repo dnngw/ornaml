@@ -2,7 +2,7 @@
 
 # ornaml
 
-Local-only "chat with your PDF" app (Next.js 16 App Router, JavaScript, Tailwind 4, SQLite). See README.md for the architecture and layout. Design decisions and limits (and why) are in docs/NOTES.md; keep it in sync when changing limits, modes or prompts. All project files (code, comments, docs, UI text) are written in English.
+Local-only "chat with your research papers" app (Next.js 16 App Router, JavaScript, Tailwind 4, SQLite). See README.md for the architecture and layout. All limits live in `lib/limits.js`; keep README.md in sync when changing limits, modes or prompts. All project files (code, comments, docs, UI text) are written in English.
 
 ## Commands
 - `npm run dev`: dev server (copies the pdf.js worker into `public/` first)
