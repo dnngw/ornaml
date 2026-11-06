@@ -17,7 +17,6 @@ const COLLECTIONS_PER_PAGE = 4;
 
 // Library list: paginated (10 / 25 / 50 per page), searchable once there are more than 8 papers.
 const PAGE_SIZES = [10, 25, 50];
-const LIBRARY_SEARCH_FROM = 9;
 const LIBRARY_SORTS = {
   newest: { label: "Newest first", compare: (a, b) => b.created_at - a.created_at },
   oldest: { label: "Oldest first", compare: (a, b) => a.created_at - b.created_at },
@@ -295,7 +294,7 @@ export default function DocumentsPage() {
             </InfoTip>
           </div>
           <div className="flex w-full items-center gap-2.5 sm:w-auto">
-            {collections.length > COLLECTIONS_PER_PAGE && (
+            {collections.length > 0 && (
               <input
                 type="search"
                 value={collectionQuery}
@@ -355,7 +354,7 @@ export default function DocumentsPage() {
               chat: click <em>Ask</em> to ask about that paper alone. Tick papers to put them in a collection.
             </InfoTip>
           </div>
-          {docs?.length >= LIBRARY_SEARCH_FROM && (
+          {docs?.length > 0 && (
             <input
               type="search"
               value={libraryQuery}
@@ -391,38 +390,34 @@ export default function DocumentsPage() {
                 )}
               </select>
             </label>
-            {docs.length > 1 && (
-              <label className="flex items-center gap-2 text-sm">
-                <span className="font-display font-bold">Sort</span>
-                <select
-                  value={librarySort}
-                  onChange={(e) => changeLibraryView(() => setLibrarySort(e.target.value))}
-                  className="nb-input w-auto py-1 font-sans"
-                >
-                  {Object.entries(LIBRARY_SORTS).map(([k, o]) => (
-                    <option key={k} value={k}>
-                      {o.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            )}
-            {docs.length > PAGE_SIZES[0] && (
-              <label className="flex items-center gap-2 text-sm">
-                <span className="font-display font-bold">Per page</span>
-                <select
-                  value={pageSize}
-                  onChange={(e) => changeLibraryView(() => setPageSize(Number(e.target.value)))}
-                  className="nb-input w-auto py-1 font-sans"
-                >
-                  {PAGE_SIZES.map((n) => (
-                    <option key={n} value={n}>
-                      {n}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            )}
+            <label className="flex items-center gap-2 text-sm">
+              <span className="font-display font-bold">Sort</span>
+              <select
+                value={librarySort}
+                onChange={(e) => changeLibraryView(() => setLibrarySort(e.target.value))}
+                className="nb-input w-auto py-1 font-sans"
+              >
+                {Object.entries(LIBRARY_SORTS).map(([k, o]) => (
+                  <option key={k} value={k}>
+                    {o.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="flex items-center gap-2 text-sm">
+              <span className="font-display font-bold">Per page</span>
+              <select
+                value={pageSize}
+                onChange={(e) => changeLibraryView(() => setPageSize(Number(e.target.value)))}
+                className="nb-input w-auto py-1 font-sans"
+              >
+                {PAGE_SIZES.map((n) => (
+                  <option key={n} value={n}>
+                    {n}
+                  </option>
+                ))}
+              </select>
+            </label>
           </div>
         )}
         {docs?.length > 0 && (

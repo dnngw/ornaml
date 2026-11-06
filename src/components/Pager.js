@@ -13,9 +13,9 @@ function pageItems(page, total) {
   return items;
 }
 
-/** "Showing 1–10 of 77   ‹ Prev 1 2 … 8 Next ›". Hidden when everything fits on one page. */
+/** "Showing 1–10 of 77   ‹ Prev 1 2 … 8 Next ›". Always shown when there is something to list, even on one page. */
 export default function Pager({ label, page, totalPages, first, shown, total, onPage }) {
-  if (totalPages <= 1) return null;
+  if (total === 0) return null;
   return (
     <nav aria-label={label} className="mt-5 flex flex-wrap items-center justify-between gap-3 text-sm">
       <span className="text-stone-600">
